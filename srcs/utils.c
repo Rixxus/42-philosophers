@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:00:32 by rmount            #+#    #+#             */
-/*   Updated: 2023/07/14 16:27:30 by rmount           ###   ########.fr       */
+/*   Updated: 2023/07/16 09:27:02 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,18 @@ int		is_valid_input(int ac, char **av)
 	return (1);
 }
 
-void	destroy_and_exit(t_deets *deets)
+void	destroy_and_exit(t_dinner *dinner)
 {
 	int i;
 
 	i = 0;
-	while (i < deets->number_of_philosophers)
+	while (i < dinner->number_of_philosophers)
 	{
-		pthread_mutex_destroy(&deets->philo[i].fork);
+		pthread_mutex_destroy(&dinner->philo[i].fork);
 		i++;
 	}
-	pthread_mutex_destroy(&deets->action);
-	free(deets->philo);
+	pthread_mutex_destroy(&dinner->action);
+	free(dinner->philo);
 	exit(0);
 }
 
